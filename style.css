@@ -1,0 +1,159 @@
+/* :root {
+  $dark: #374151;
+  --darker: #1f2937;
+  --darkest: #111827;
+  --gray: #6b7290;
+  --light: #eee;
+  --pink: #ec4899;
+  --purple: #8b5cf6;
+} */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Fira Code", monospace;
+}
+body {
+  background-color: #374151 !important;
+  min-height: 100vh;
+  color: #fff !important;
+}
+header {
+  padding: 2rem 1rem;
+  max-width: 800px;
+}
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #6b7290;
+}
+input, textarea ,
+button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  overflow: hidden;
+}
+textarea{
+    max-height: fit-content;
+}
+/* the form  */
+#new-task-input {
+  flex: 1 1 0%;
+  background-color: #1f2937;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-right: 1rem;
+  color: #6b7290;
+  font-size: 1.2rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+#new-task-input::placeholder {
+  color: #6b7290;
+}
+/* the submit button */
+#submit-new-task {
+  color: #ec4899;
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #ec4899, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+}
+
+#submit-new-task:hover {
+  opacity: 0.8;
+}
+
+#submit-new-task:active {
+  opacity: 0.6;
+}
+
+main {
+  flex: 1 1 0%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+main h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #6b7290;
+}
+#tasks-container .task {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #111827;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+  margin: 1rem 0;
+  width: 100%;
+}
+.task .content {
+  width: 100%;
+  flex: 1 1 0%;
+  height: fit-content;
+}
+.content .text {
+  color: #eee;
+  font-size: 1.125rem;
+  display: block;
+  transition: 0.4s;
+  width: 100%;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+}
+
+/* this give us an indicate that we are switched from edit mode to readonly mode and vice versa  */
+.text:not(:read-only) {
+  color: #ec4899;
+}
+.actions {
+  display: flex;
+  margin: 0 -0.5rem;
+}
+.actions button {
+  cursor: pointer;
+  margin: 0 0.5rem;
+  font-size: 1.125;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.4;
+  -webkit-transition: 0.4;
+  -moz-transition: 0.4;
+  -ms-transition: 0.4;
+  -o-transition: 0.4;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:active {
+  opacity: 0.6;
+}
+
+.edit {
+  background: linear-gradient(to right, #ec4899, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
+.delete {
+  color: crimson;
+}
