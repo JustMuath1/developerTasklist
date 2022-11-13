@@ -6,7 +6,8 @@ window.addEventListener("load", () => {
     e.preventDefault();
     // prevent from refreshing the page
     const task = input.value;
-    if (task){
+
+    if (task) {
       const task_el = document.createElement("div");
       task_el.classList.add("task");
 
@@ -17,9 +18,11 @@ window.addEventListener("load", () => {
 
       const taskInput_el = document.createElement("textarea");
       taskInput_el.classList.add("text");
-      taskInput_el.classList.add("text-wrap");
+      taskInput_el.classList.add("draggable");
+      // taskInput_el.classList.add("text-wrap");
       taskInput_el.value = task;
       taskInput_el.setAttribute("readonly", "readonly");
+      taskInput_el.setAttribute("draggable", "true");
       task_content_el.appendChild(taskInput_el);
 
       // taskInput_el.type = "text";
@@ -101,12 +104,11 @@ window.addEventListener("load", () => {
         });
       });
       Swal.fire("Good job!", "Task Have Been Added!", "success");
-    }
-    else if (!task) {
+    } else if (!task) {
       Swal.fire({
         icon: "error",
         title: "Oops... You didn't enter a task 😒",
       });
-    } 
+    }
   });
 });
