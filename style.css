@@ -27,14 +27,15 @@ header h1 {
   font-weight: 300;
   color: #6b7290;
 }
-input, textarea ,
+input,
+textarea,
 button {
   appearance: none;
   border: none;
   outline: none;
   background: none;
 }
-textarea{
+textarea {
   height: fit-content;
   resize: none;
 }
@@ -47,7 +48,6 @@ textarea{
   margin-right: 1rem;
   color: #6b7290;
   font-size: 1.2rem;
-  height: auto;
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
@@ -66,6 +66,8 @@ textarea{
   -webkit-text-fill-color: transparent;
   cursor: pointer;
   transition: 0.4s;
+  padding: 0;
+  margin: 0;
   -webkit-transition: 0.4s;
   -moz-transition: 0.4s;
   -ms-transition: 0.4s;
@@ -106,7 +108,6 @@ main h2 {
 .task .content {
   width: 100%;
   flex: 1 1 0%;
-  height: fit-content;
 }
 .content .text {
   color: #eee;
@@ -114,10 +115,6 @@ main h2 {
   display: block;
   transition: 0.4s;
   width: 100%;
-  -webkit-transition: 0.4s;
-  -moz-transition: 0.4s;
-  -ms-transition: 0.4s;
-  -o-transition: 0.4s;
   resize: none;
   height: fit-content;
 }
