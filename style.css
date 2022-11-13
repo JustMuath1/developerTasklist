@@ -33,10 +33,10 @@ button {
   border: none;
   outline: none;
   background: none;
-  overflow: hidden;
 }
 textarea{
-    max-height: fit-content;
+  height: fit-content;
+  resize: none;
 }
 /* the form  */
 #new-task-input {
@@ -47,6 +47,7 @@ textarea{
   margin-right: 1rem;
   color: #6b7290;
   font-size: 1.2rem;
+  height: auto;
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
@@ -117,6 +118,8 @@ main h2 {
   -moz-transition: 0.4s;
   -ms-transition: 0.4s;
   -o-transition: 0.4s;
+  resize: none;
+  height: fit-content;
 }
 
 /* this give us an indicate that we are switched from edit mode to readonly mode and vice versa  */

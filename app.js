@@ -6,18 +6,12 @@ window.addEventListener("load", () => {
     e.preventDefault();
     // prevent from refreshing the page
     const task = input.value;
-    let tasks_list = [];
 
     if (!task) {
-        Swal.fire({
-            icon: "error",
-            title: "Oops... You didn't enter a task 😒",
-        });
-    }
-    if(task){
-        for (let i = 0; i <= tasks_list.length; i++) {
-            window.localStorage.setItem(`task${i}`, task);
-        }
+      Swal.fire({
+        icon: "error",
+        title: "Oops... You didn't enter a task 😒",
+      });
     }
 
     const task_el = document.createElement("div");
@@ -30,11 +24,12 @@ window.addEventListener("load", () => {
 
     const taskInput_el = document.createElement("textarea");
     taskInput_el.classList.add("text");
-    // taskInput_el.type = "text";
+    taskInput_el.classList.add("text-wrap");
     taskInput_el.value = task;
     taskInput_el.setAttribute("readonly", "readonly");
-
     task_content_el.appendChild(taskInput_el);
+
+    // taskInput_el.type = "text";
 
     const taskActions_el = document.createElement("div");
     taskActions_el.classList.add("actions");
@@ -54,8 +49,35 @@ window.addEventListener("load", () => {
 
     listEle.appendChild(task_el);
 
+    taskInput_el.style.height = `${taskInput_el.scrollHeight}px`;
+
     input.value = "";
 
+    taskInput_el.addEventListener("dblclick", (e) => {
+      taskInput_el.removeAttribute("readonly");
+      taskInput_el.focus();
+      taskEdit_el.innerText = "Save";
+    });
+
+    // shortcut for editing the task
+    taskInput_el.addEventListener("keypress", (e) => {
+      if (e.key == "Enter" && e.shiftKey == true) {
+        taskInput_el.setAttribute("readonly", "readonly");
+        taskEdit_el.innerText = "Edit";
+        Swal.fire("Good job!", "You Task has been updated!", "success");
+      }
+    });
+
+    // press outside the task will return the edit button
+    document.body.addEventListener(
+      "click",
+      (e) => {
+        if (e.target.closest(".edit")) return;
+        taskInput_el.setAttribute("readonly", "readonly");
+        taskEdit_el.innerText = "Edit";
+      },
+      (once = "true")
+    );
     // Edit and Delete functionality
     taskEdit_el.addEventListener("click", () => {
       if (taskEdit_el.innerText.toLocaleLowerCase() === "edit") {
@@ -68,6 +90,7 @@ window.addEventListener("load", () => {
         Swal.fire("Good job!", "You Task has been updated!", "success");
       }
     });
+
     taskDelete_el.addEventListener("click", () => {
       Swal.fire({
         title: "Are you sure?",
